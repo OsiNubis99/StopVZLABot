@@ -6,8 +6,6 @@ var app = express();
 const { response } = require("express");
 var groups = ["-1001432406771", "-358611014"];
 
-let data = bd.read();
-
 app.use(express.static("./public"));
 app.get("/Saludar", (req, res) => {
   res.send("CaidaBot!");
@@ -47,5 +45,4 @@ bot.onText(/\/saluda (.+)/, (msg, match) => {
   let chatId = msg.chat.id;
   let resp = "Hola @" + msg.from.username + "\nTu mensaje fue: " + match[1];
   bot.sendMessage(chatId, resp);
-  bd.write(data);
 });
