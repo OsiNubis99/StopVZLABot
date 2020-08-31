@@ -1,9 +1,8 @@
+// ----------------------- Server -----------------------
 const express = require("express");
 
-var bot = require("./configs/bot");
 var app = express();
 
-const { response } = require("express");
 var groups = ["-1001432406771", "-358611014"];
 
 app.use(express.static("./public"));
@@ -12,9 +11,12 @@ app.get("/Saludar", (req, res) => {
 });
 
 let port = process.env.PORT || 3000;
+let url = process.env.APP_URL || "127.0.0.1";
 app.listen(port, () =>
-  console.log("Gator app listening on port " + port + "!")
+  console.log("Bot listening on port " + url + ":" + port + "!")
 );
+// ------------------------ Bot ------------------------
+var bot = require("./configs/bot");
 
 bot.on("inline_query", (query) => {
   bot.answerInlineQuery(
@@ -45,4 +47,24 @@ bot.onText(/\/saluda (.+)/, (msg, match) => {
   let chatId = msg.chat.id;
   let resp = "Hola @" + msg.from.username + "\nTu mensaje fue: " + match[1];
   bot.sendMessage(chatId, resp);
+});
+
+bot.onText(/\/start/, (msg, match) => {
+  let chatId = msg.chat.id;
+  let resp = "Hola @" + msg.from.username;
+  bot.sendMessage(chatId, resp);
+});
+
+bot.on("text", (msg) => {
+  let chatId = msg.chat.id;
+  let resp = "Hola @" + msg.from.username;
+  bot.sendMessage(chatId, resp);
+});
+
+bot.on("error", (error) => {
+  console.error(error);
+});
+
+bot.on("polling_error", (error) => {
+  console.error(error);
 });
