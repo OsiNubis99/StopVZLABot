@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Stop game built in JavaScript",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "nodemon --ignore 'data.json' test.js",
