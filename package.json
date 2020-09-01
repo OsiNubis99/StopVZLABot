@@ -1,7 +1,7 @@
 {
   "name": "stopvzlabot",
   "version": "1.0.0",
-  "description": "Stop game built in JavaScript",
+  "description": "Stop-game Telegram Bot built in JavaScript",
   "main": "index.js",
   "engines": {
     "node": "14.x",
@@ -27,6 +27,7 @@
     "node-telegram-bot-api": "^0.50.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
   }
 }

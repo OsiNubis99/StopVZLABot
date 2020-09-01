@@ -1,3 +1,3 @@
 # CaidaVZLABot
 
-Stop game built in JavaScript
+Stop-game Telegram Bot built in JavaScript

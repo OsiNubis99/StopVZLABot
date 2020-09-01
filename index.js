@@ -1,10 +1,13 @@
-const TOKEN = process.env.TELEGRAM_TOKEN || "YOUR_TELEGRAM_BOT_TOKEN";
+const TelegramBot = require("node-telegram-bot-api");
+const express = require("express");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+const TOKEN = process.env.TELEGRAM_TOKEN;
 const url = process.env.APP_URL || "https://stopvzlabot.herokuapp.com:443";
 const port = process.env.PORT;
 const is_dev = process.env.IS_DEV;
-
-const TelegramBot = require("node-telegram-bot-api");
-const express = require("express");
 
 let options = {};
 if (is_dev == "true") {
