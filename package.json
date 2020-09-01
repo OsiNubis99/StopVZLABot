@@ -24,7 +24,9 @@
   "homepage": "https://github.com/OsiNubis99/StopVZLABot#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "node-telegram-bot-api": "^0.50.0"
+    "node-telegram-bot-api": "^0.50.0",
+    "node-telegram-keyboard-wrapper": "^2.0.1",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
