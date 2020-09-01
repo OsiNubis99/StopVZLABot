@@ -4,7 +4,8 @@
   "description": "Stop game built in JavaScript",
   "main": "index.js",
   "engines": {
-    "node": "14.x"
+    "node": "14.x",
+    "npm": "6.x"
   },
   "scripts": {
     "start": "node index.js",
