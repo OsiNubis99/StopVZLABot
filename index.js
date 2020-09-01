@@ -1,22 +1,27 @@
 // ----------------------- Server -----------------------
-const express = require("express");
-
+var express = require("express");
 var app = express();
 
-var groups = ["-1001432406771", "-358611014"];
+app.use(express.static("public"));
 
-app.use(express.static("./public"));
+app.get("/", function (req, res) {
+  res.send("Hello World");
+});
+
 app.get("/Saludar", (req, res) => {
   res.send("CaidaBot!");
 });
 
-let port = process.env.PORT || 3000;
-let url = process.env.APP_URL || "127.0.0.1";
-app.listen(port, () =>
-  console.log("Bot listening on port " + url + ":" + port + "!")
-);
+var server = app.listen(process.env.PORT || 3000, () => {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log("Example app listening at http://%s:%s", host, port);
+});
+
 // ------------------------ Bot ------------------------
 var bot = require("./configs/bot");
+
+var groups = ["-1001432406771", "-358611014"];
 
 bot.on("inline_query", (query) => {
   bot.answerInlineQuery(
