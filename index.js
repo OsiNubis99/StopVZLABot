@@ -1,12 +1,7 @@
-require("./configs/server");
+const bot = require("./configs/server");
 const kb = require("node-telegram-keyboard-wrapper");
-const bot = require("./configs/bot");
 
 var groups = ["-1001432406771", "-358611014"];
-var test = {
-  conf: true,
-  como: false,
-};
 
 bot.on("callback_query", (query) => {
   let chatId = query.message.chat.id;

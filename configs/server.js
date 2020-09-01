@@ -1,3 +1,4 @@
+const bot = require("./bot");
 const express = require("express");
 const env = require("./env");
 
@@ -14,6 +15,8 @@ app.post(`/bot${env.TOKEN}`, (req, res) => {
   res.sendStatus(200);
 });
 
-module.exports = app.listen(env.port, function () {
+app.listen(env.port, function () {
   console.log(`Express server is listening on port ${env.port}`);
 });
+
+module.exports = bot;
